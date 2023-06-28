@@ -2,7 +2,9 @@
 
 This extension embeds information about the principal which triggered an occurence. This allows consumers of the
 CloudEvent to perform user-dependent actions without requiring the user ID to
-be embedded in the `data` or `source` field (e.g. a data layout that embeds user IDs in the `source`).
+be embedded in the `data` or `source` field.
+
+This extension is purely informational and is not intended to secure CloudEvents.
 
 ## Notational Conventions
 
@@ -34,7 +36,7 @@ Valid values are:
     was deleted based on a TTL.
 - Constriants
   - REQUIRED
-  - MUST be one of the above enum values
+  - SHOULD be one of the above enum values
 
 ### authclaims
 - Type: `String`
@@ -42,6 +44,5 @@ Valid values are:
   the event. This field MAY be omitted.
 - Constraints
   - OPTIONAL
-  - In order to support HTTP binary encoding, authclaims MUST NOT
-  contain a newline character.
-  - MUST NOT contain actual credentials sufficient for the Consumer to impersonate the principal directly. MAY contain enough information that the Consumer may generate a new token for impersonation.
+  - MUST NOT contain actual credentials sufficient for the Consumer to impersonate the principal directly.
+  - MAY contain enough information that a Consumer can authenticate against an identity service to mint a credential impersonating the original principal.
