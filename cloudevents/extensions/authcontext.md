@@ -1,0 +1,47 @@
+# Sampled Rate Extension
+
+This extension embeds information about the principal which triggered an occurence. This allows consumers of the
+CloudEvent to perform user-dependent actions without requiring the user ID to
+be embedded in the `data` or `source` field (e.g. a data layout that embeds user IDs in the `source`).
+
+## Notational Conventions
+
+As with the main [CloudEvents specification](../spec.md), the key words "MUST",
+"MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT",
+"RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as
+described in [RFC 2119](https://tools.ietf.org/html/rfc2119).
+
+However, the scope of these key words is limited to when this extension is
+used. For example, an attribute being marked as "REQUIRED" does not mean
+it needs to be in all CloudEvents, rather it needs to be included only when 
+this extension is being used.
+
+## Attributes
+
+### authtype
+
+- Type: `String`
+- Description: An enum representing the type of principal that triggered the occurence.
+Valid values are:
+  - `app_user`: An end user of an application. Examples include an AWS cognito,
+    Google Cloud Identity Platform, or Azure Active Directory user.
+  - `user`: A user account registered in the infrastructure. Examples include
+    developer accounts secured by IAM in AWS, Google Cloud Platform, or Azure.
+  - `service_account`: A non-user principal used to identify a service.
+  - `api_key`: A non-user API key
+  - `system`: An obscured identity used when a cloud platform or other system
+    service triggers an event. Examples may include a database record which
+    was deleted based on a TTL.
+- Constriants
+  - REQUIRED
+  - MUST be one of the above enum values
+
+### authclaims
+- Type: `String`
+- Description: A JSON string representing claims of the principal that triggered
+  the event. This field MAY be omitted.
+- Constraints
+  - OPTIONAL
+  - In order to support HTTP binary encoding, authclaims MUST NOT
+  contain a newline character.
+  - MUST not contain actual credentials sufficient for the Consumer to impersonate the principal directly. MAY contain enough information that the Consumer may generate a new token for impersonation.
