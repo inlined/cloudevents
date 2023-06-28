@@ -1,4 +1,4 @@
-# Sampled Rate Extension
+# Auth Context Extension
 
 This extension embeds information about the principal which triggered an occurence. This allows consumers of the
 CloudEvent to perform user-dependent actions without requiring the user ID to
