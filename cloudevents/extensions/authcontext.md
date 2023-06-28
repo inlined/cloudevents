@@ -44,4 +44,4 @@ Valid values are:
   - OPTIONAL
   - In order to support HTTP binary encoding, authclaims MUST NOT
   contain a newline character.
-  - MUST not contain actual credentials sufficient for the Consumer to impersonate the principal directly. MAY contain enough information that the Consumer may generate a new token for impersonation.
+  - MUST NOT contain actual credentials sufficient for the Consumer to impersonate the principal directly. MAY contain enough information that the Consumer may generate a new token for impersonation.
