@@ -37,6 +37,13 @@ Valid values are:
 - Constriants
   - REQUIRED
   - SHOULD be one of the above enum values
+  - If the enum values are not sufficient for a Producer, they SHOULD amend this spec to include the new enum value.
+
+### authid
+- Type: `String`
+- Description: A unique identifier of the principal that triggered this Occurance. This may, for example, be a unique ID in an identity database (userID), an email of a platform user or service account, or the label for an API key.
+- Constraints
+  - OPTIONAL
 
 ### authclaims
 - Type: `String`
