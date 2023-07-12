@@ -1,4 +1,4 @@
-# Auth Context Extension
+# Auth Context
 
 This extension embeds information about the principal which triggered an occurence. This allows consumers of the
 CloudEvent to perform user-dependent actions without requiring the user ID to
