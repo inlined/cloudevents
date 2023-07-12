@@ -41,7 +41,7 @@ Valid values are:
 
 ### authid
 - Type: `String`
-- Description: A unique identifier of the principal that triggered this Occurance. This may, for example, be a unique ID in an identity database (userID), an email of a platform user or service account, or the label for an API key.
+- Description: A unique identifier of the principal that triggered the occurence. This may, for example, be a unique ID in an identity database (userID), an email of a platform user or service account, or the label for an API key.
 - Constraints
   - OPTIONAL
 
