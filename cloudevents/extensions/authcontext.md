@@ -32,7 +32,7 @@ Valid values are:
   - `service_account`: A non-user principal used to identify a service.
   - `api_key`: A non-user API key
   - `system`: An obscured identity used when a cloud platform or other system
-    service triggers an event. Examples may include a database record which
+    service triggers an event. Examples include a database record which
     was deleted based on a TTL.
 - Constriants
   - REQUIRED
@@ -41,7 +41,7 @@ Valid values are:
 
 ### authid
 - Type: `String`
-- Description: A unique identifier of the principal that triggered the occurence. This may, for example, be a unique ID in an identity database (userID), an email of a platform user or service account, or the label for an API key.
+- Description: A unique identifier of the principal that triggered the occurence. This might, for example, be a unique ID in an identity database (userID), an email of a platform user or service account, or the label for an API key.
 - Constraints
   - OPTIONAL
 
